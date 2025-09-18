@@ -50,6 +50,13 @@ const Index = () => {
       label: "Message us on Viber",
       colorClass: "social-viber"
     }
+        {
+      href: "https://cihanuniversity.edu.iq/college-of-education/department-of-education/",
+      icon: Globe,
+      name: "Department Website",
+      label: "Visit our official department website",
+      colorClass: "social-website"
+    }
   ];
 
   return (
@@ -76,16 +83,6 @@ const Index = () => {
               <p className="text-base text-white/80 mb-6 max-w-2xl mx-auto">
                 Cihan University - Erbil
               </p>
-              <Button 
-                asChild
-                size="default"
-                className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 shadow-elegant"
-              >
-                <a href="https://cihanuniversity.edu.iq/college-of-education/department-of-education/">
-                  Visit Department Website
-                  <Globe className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
             </div>
           </div>
         </div>
@@ -102,7 +99,7 @@ const Index = () => {
               Stay connected with the General Education Department through our social media channels
             </p>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12 justify-items-center">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4 mb-12 justify-items-center">
               {socialButtons.map((social, index) => (
                 <div key={index} className="animate-fade-up w-full flex justify-center" style={{animationDelay: `${index * 0.1}s`}}>
                   <SocialButton
