@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Phone, Globe, Send } from "lucide-react";
+import { Facebook, Instagram, Phone, Globe, Send, MapPin } from "lucide-react";
 import { SocialButton } from "@/components/SocialButton";
 import { TikTokIcon } from "@/components/TikTokIcon";
 import { Card, CardContent } from "@/components/ui/card";
@@ -56,6 +56,13 @@ const Index = () => {
       name: "Department Website",
       label: "Visit our official department website",
       colorClass: "social-website"
+    },
+    {
+      href: "https://maps.app.goo.gl/Lw44i4XYAf1nqQS96",
+      icon: MapPin,
+      name: "Location",
+      label: "Find us on Google Maps",
+      colorClass: "social-location"
     }
   ];
 
@@ -99,7 +106,7 @@ const Index = () => {
               Stay connected with the General Education Department through our social media channels
             </p>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4 mb-12 justify-items-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-12 justify-items-center">
               {socialButtons.map((social, index) => (
                 <div key={index} className="animate-fade-up w-full flex justify-center" style={{animationDelay: `${index * 0.1}s`}}>
                   <SocialButton
