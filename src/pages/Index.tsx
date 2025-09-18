@@ -50,7 +50,7 @@ const Index = () => {
       label: "Message us on Viber",
       colorClass: "social-viber"
     }
-        {
+        
       href: "https://cihanuniversity.edu.iq/college-of-education/department-of-education/",
       icon: Globe,
       name: "Department Website",
