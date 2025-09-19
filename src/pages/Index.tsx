@@ -1,8 +1,10 @@
-import { Facebook, Instagram, Phone, Globe, Send, MapPin, Mail } from "lucide-react";
+import { Facebook, Instagram, Phone, Globe, MapPin, Mail } from "lucide-react";
 import { SocialButton } from "@/components/SocialButton";
 import { TikTokIcon } from "@/components/TikTokIcon";
+import { TelegramIcon } from "@/components/TelegramIcon";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { ViberIcon } from "@/components/ViberIcon";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import departmentLogo from "@/assets/department-logo.jpg";
 import departmentBanner from "@/assets/department-banner.jpg";
 
@@ -31,10 +33,37 @@ const Index = () => {
     },
     {
       href: "https://wa.me/9647501549661",
-      icon: Send,
+      icon: WhatsAppIcon,
       name: "WhatsApp",
       label: "Message us on WhatsApp",
       colorClass: "social-whatsapp"
+    },
+    {
+      href: "viber://chat?number=9647501549661",
+      icon: ViberIcon,
+      name: "Viber",
+      label: "Message us on Viber",
+      colorClass: "social-viber"
+    },
+    {
+      href: "https://t.me/+9647501549661",
+      icon: TelegramIcon,
+      name: "Telegram",
+      label: "Message us on Telegram",
+      colorClass: "social-telegram",
+      iconSize: 32,
+      onClick: () => {
+        const tgDeepLink = "tg://resolve?phone=9647501549661";
+        const webFallback = "https://t.me/+9647501549661";
+        const start = Date.now();
+        // Attempt to open Telegram app; if it fails quickly, open web fallback
+        (window as any).location.href = tgDeepLink;
+        setTimeout(() => {
+          if (Date.now() - start < 1500) {
+            window.open(webFallback, "_blank");
+          }
+        }, 1200);
+      }
     },
     {
       href: "tel:+9647501549661",
@@ -42,13 +71,6 @@ const Index = () => {
       name: "Call Us",
       label: "07501549661",
       colorClass: "social-phone"
-    },
-    {
-      href: "viber://chat?number=9647501549661",
-      icon: Send,
-      name: "Viber",
-      label: "Message us on Viber",
-      colorClass: "social-viber"
     },
     {
       href: "https://cihanuniversity.edu.iq/college-of-education/department-of-education/",
@@ -113,7 +135,7 @@ const Index = () => {
               Stay connected with the General Education Department through our social media channels
             </p>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-4 mb-12 justify-items-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-10 gap-4 mb-12 justify-items-center">
               {socialButtons.map((social, index) => (
                 <div key={index} className="animate-fade-up w-full flex justify-center" style={{animationDelay: `${index * 0.1}s`}}>
                   <SocialButton
@@ -122,6 +144,8 @@ const Index = () => {
                     name={social.name}
                     label={social.label}
                     colorClass={social.colorClass}
+                    iconSize={(social.name === "Telegram" || social.name === "Viber") ? 32 : 28}
+                    onClick={social.onClick}
                   />
                 </div>
               ))}
